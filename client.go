@@ -62,6 +62,7 @@ func NewClient(options ...Option) *Client {
     restyClient := resty.New().
         SetBaseURL(config.BaseURL).
         SetHeader("Content-Type", "application/json")
+		restyClient.SetHeader("User-Agent", "mohuacloud-go-sdk")
 
     // 如果有token，设置认证头
     if config.JWTToken != "" {
